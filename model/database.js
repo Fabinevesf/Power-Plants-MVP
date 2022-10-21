@@ -9,8 +9,8 @@ const DB_NAME = process.env.DB_NAME
 const con = mysql.createConnection({
   host: DB_HOST || '127.0.0.1',
   user: DB_USER || 'root',
-  password: DB_PASS,
-  database: DB_NAME || 'facebook',
+  password: DB_PASS || 'root',
+  database: DB_NAME || 'todos/global_power_plant_database',
   multipleStatements: true,
 })
 
@@ -19,7 +19,7 @@ con.connect(function (err) {
   console.log('Connected!')
 
   let sql =
-    'DROP TABLE if EXISTS `Solar Power Plants`;CREATE TABLE `Solar Power Plants`(`id` INT NOT NULL AUTO_INCREMENT,`electrical capacit` INT NOT NULL,`year` INT NOT NULL);DROP TABLE if EXISTS `Location Solar Power Plants`CREATE TABLE `Location Solar Power Plants`(`id` INT NOT NULL AUTO_INCREMENT,`long` INT NOT NULL, `lat` INT NOT NULL,`city` VARCHAR(255) NOT NULL, `country` VARCHAR(255) NOT NULL, PRIMARY KEY(id));'
+    'DROP TABLE if EXISTS `global_power_plant_database`;CREATE TABLE `global_power_plant_database`(`id` INT NOT NULL AUTO_INCREMENT,`electrical capacity` INT NOT NULL,`year` INT NOT NULL);DROP TABLE if EXISTS `Location Solar Power Plants`CREATE TABLE `Location Solar Power Plants`(`id` INT NOT NULL AUTO_INCREMENT,`long` INT NOT NULL, `lat` INT NOT NULL,`city` VARCHAR(255) NOT NULL, `country` VARCHAR(255) NOT NULL, PRIMARY KEY(id));'
   con.query(sql, function (err, result) {
     if (err) throw err
     console.log(

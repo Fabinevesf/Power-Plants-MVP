@@ -68,3 +68,58 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Full Stack To Do App
+
+In this repository, you will use build a full stack To Do app using React, Node/Express, and MySQL.
+
+Objectives
+
+Build a database.
+Build an API server.
+Create a front end.
+Setup
+
+Dependencies
+
+Run npm install in the project folder to install dependencies related to Express (the server).
+
+cd client and run npm install install dependencies related to React (the client).
+
+Database Prep
+
+Create .env file in project directory and add
+
+DB_NAME=todos
+DB_PASS=YOUR_PASSWORD
+(replace YOUR_PASSWORD with your actual password)
+
+Alternatively, you can rename the provided .env.example file to .env.
+
+Type mysql -u root -p to access the MySQL CLI using your password.
+
+In the MySQL CLI, type create database todos; to create a database in MySQL.
+
+Run the following in the MySQL CLI: ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YOUR_PASSWORD'; (replace YOUR_PASSWORD with your actual password)
+
+Run node model/database.js in your TERMINAL, in the project folder (not your MySQL CLI! Open a new terminal window for this). This will create a table called 'items' in your database.
+
+Run Your Development Servers
+
+Run npm start in project directory to start the Express server on port 5000
+cd client and run npm start to start client server in development mode with hot reloading in port 3000.
+Client is configured so all API calls will be proxied to port 5000 for a smoother development experience. Yay!
+You can test your client app in http://localhost:3000
+You can test your API in http://localhost:5000/api
+Basic Requirements
+
+1. Read through all the current code and explain it to your partner.
+
+Explain what each line of code is doing.
+Look at the docs and ask your instructor if you aren't sure! 2. Finish the routes
+
+Suggested Process:
+
+Try and write the correct query in mysql.
+Use that query to finish the endpoint in routes/api.js.
+Test your endpoint using Postman.
