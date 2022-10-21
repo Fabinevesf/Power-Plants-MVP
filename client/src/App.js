@@ -48,7 +48,7 @@ function App() {
   return (
     <div className='App'>
       <div className='App-Header'>
-        <h1>POWER PLANTS</h1>
+        <h1>🌱 POWER PLANTS 🌱</h1>
       </div>
 
       <div className='Dropdown-Multiselect'>
