@@ -4,7 +4,9 @@ const db = require('../model/helper')
 
 async function getPlants() {
   try {
-    let results = await db('SELECT * FROM mytable;')
+    let results = await db(
+      'SELECT id, electrical_capacity, energy_source_level_2, lon, lat, as_of_year FROM mytable WHERE id < 100;'
+    )
     return results.data
   } catch (err) {
     return err

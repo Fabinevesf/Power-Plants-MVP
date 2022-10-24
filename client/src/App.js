@@ -5,27 +5,10 @@ import './App.css'
 import Multiselect from 'multiselect-react-dropdown'
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 import React, { useState, useEffect } from 'react'
-import { Button } from 'react-bootstrap'
 
 function App() {
   const [plants, setPlants] = useState([])
-  const fuelSource = [
-    //onde procurar no back: energy_source_level_2
-    { fuelSource: 'Solar', id: 1 },
-    { fuelSource: 'Hydro', id: 2 },
-    { fuelSource: 'Wind', id: 3 },
-    { fuelSource: 'BioEnergy', id: 4 },
-  ]
-  const [options] = useState(fuelSource)
-  const country = [
-    { country: 'France', id: 1 },
-    { country: 'Finland', id: 2 },
-    { country: 'Brazil', id: 3 },
-    { country: 'Portugal', id: 4 },
-    { country: 'Germany', id: 5 },
-    { country: 'UK', id: 6 },
-  ]
-  const [countries] = useState(country)
+  const [filter, setFilter] = useState(null)
 
   useEffect(() => {
     getPlants()
@@ -43,6 +26,10 @@ function App() {
         console.log(error)
       })
   }
+  function filterSource(items, item) {
+    console.log('oi', items, item)
+    setFilter(item.key)
+  }
 
   //THE HTML OUTPUT
   return (
@@ -59,7 +46,7 @@ function App() {
           onKeyPressFn={function noRefCheck() {}}
           onRemove={function noRefCheck() {}}
           onSearch={function noRefCheck() {}}
-          onSelect={function noRefCheck() {}}
+          onSelect={filterSource}
           options={[
             {
               fuelSource: 'Solar',
@@ -73,27 +60,45 @@ function App() {
               fuelSource: 'BioEnergy',
               key: 'BioEnergy',
             },
+            {
+              fuelSource: 'Hydro',
+              key: 'Hydro',
+            },
           ]}
         />
       </div>
-      <div className='map'>
-        <MapContainer
-          center={[51.505, -0.09]}
-          zoom={8}
-          scrollWheelZoom={false}
-          style={{ height: '700px', width: '1000px' }}
-        >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-          />
-
-          <Marker position={[51.505, -0.09]}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
-        </MapContainer>
+      {plants.length && (
+        <div className='map'>
+          <MapContainer
+            center={[51.505, -0.09]}
+            zoom={8}
+            scrollWheelZoom={false}
+            style={{ height: '700px', width: '1000px' }}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+            />
+            {plants
+              .filter((el) => {
+                if (filter === el.energy_source_level_2) {
+                  return el
+                } else if (!filter) {
+                  return el
+                }
+              })
+              .map((usina) => (
+                <Marker position={[usina.lat, usina.lon]} key={usina.id}>
+                  <Popup>
+                    A pretty CSS3 popup. <br /> Easily customizable.
+                  </Popup>
+                </Marker>
+              ))}
+          </MapContainer>
+        </div>
+      )}
+      <div>
+        <h3></h3>
       </div>
     </div>
   )

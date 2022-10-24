@@ -3,7 +3,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
@@ -23,23 +22,51 @@ body {
 }
 
 .Dropdown-Multiselect {
-  width: 30%;
+  width: 40%;
   height: 30%;
   margin: 100px 40px;
   background-color: #f0ffff;
   color: #008080;
   padding: 40px 40px;
   border-radius: 10px 100px / 120px;
+  margin-left: 280px;
 }
 
 h1 {
+  justify-content: center;
   margin: 100px 10px 35px 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 400%;
 }
 
 .map {
-  width: 100%;
+  width: 80%;
   height: 100%;
-  margin: 100px 40px;
-  padding: 40px 40px;
+  margin: 40px;
+  padding: 40px;
   border-radius: 10px 100px / 120px;
+}
+
+.form {
+  justify-content: center;
+  background-color: rgb(126, 173, 184);
+  width: 100%;
+  margin: auto;
+  margin-top: 15px;
+  border-radius: 100px / 120px;
+  padding: 40px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.form button {
+  width: 80px;
+  height: 50px;
+  margin-top: 10px;
+  background-color: rgb(55, 78, 82);
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 5px 5px 5px rgb(71, 67, 67);
+  cursor: pointer;
 }
