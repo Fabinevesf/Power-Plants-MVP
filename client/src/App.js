@@ -70,8 +70,8 @@ function App() {
       {plants.length && (
         <div className='map'>
           <MapContainer
-            center={[51.505, -0.09]}
-            zoom={8}
+            center={[49.611622, 6.131935]}
+            zoom={6}
             scrollWheelZoom={false}
             style={{ height: '700px', width: '1000px' }}
           >
@@ -81,16 +81,20 @@ function App() {
             />
             {plants
               .filter((el) => {
-                if (filter === el.energy_source_level_2) {
-                  return el
-                } else if (!filter) {
+                if (filter === el.energy_source_level_2 || !filter) {
                   return el
                 }
               })
               .map((usina) => (
                 <Marker position={[usina.lat, usina.lon]} key={usina.id}>
-                  <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
+                  <Popup className='PopUp'>
+                    <p>
+                      Year Installation: {usina.as_of_year}
+                      <br />
+                      Source: {usina.energy_source_level_2}
+                      <br />
+                      Capacity - MW: {usina.electrical_capacity}
+                    </p>
                   </Popup>
                 </Marker>
               ))}
@@ -98,7 +102,7 @@ function App() {
         </div>
       )}
       <div>
-        <h3></h3>
+        <h6>Developed by Fabiana Neves 2022</h6>
       </div>
     </div>
   )

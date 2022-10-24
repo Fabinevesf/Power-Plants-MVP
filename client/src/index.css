@@ -45,6 +45,7 @@ h1 {
   margin: 40px;
   padding: 40px;
   border-radius: 10px 100px / 120px;
+  border-color: black 2px;
 }
 
 .form {
@@ -69,4 +70,14 @@ h1 {
   border: none;
   box-shadow: 5px 5px 5px rgb(71, 67, 67);
   cursor: pointer;
+}
+
+.PopUp {
+  width: 600px;
+  height: 500px;
+  margin: -90px;
+}
+
+h6 {
+  justify-content: center;
 }

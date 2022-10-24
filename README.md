@@ -5,6 +5,7 @@ Full Stack Power Plants Project MVP
 In this repository, you will use build a Full Stack Power Plants Project MVP using React, Node/Express, and MySQL.
 
 Objectives
+Shows all power plants on a interactive map, you can filter the plants by source, location, year and installed capacity.
 
 Import database from "https://open-power-system-data.org/"
 Build an API server.
@@ -64,3 +65,14 @@ You can test your API in http://localhost:5000/api
 $ npm start
 
 # Well done, PowerPlant is started!
+
+- Libraries used:
+
+1. I'll show my front end that I used react and two libraries to show the interactive map and a form that you can choose the font you want to visualize.
+2. At a first moment, I imported a database only from France, but in this DB you can import for all the countries of the world and use the same logic to filter the power plants and each source chosen.
+3. I used another library called Multiselect to develop this font filter
+
+- Next Features:
+
+1. Import the data from more countries (Portugal), to have a global view of the plants.
+2. Change the pin visualization, I saw in the leaflet react library that I can change the icon, for example, if I am looking for the solar source, I can change the icon to a sun, make it smaller for a cleaner visualization.
