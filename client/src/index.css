@@ -16,6 +16,10 @@ body {
   width: 100vw;
 }
 
+.nav-bar {
+  margin: 10px;
+}
+
 .App-Header {
   display: flex;
   justify-content: center;

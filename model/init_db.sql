@@ -1,0 +1,33 @@
+DROP TABLE IF EXISTS mytable;
+
+CREATE TABLE `mytable` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `electrical_capacity` decimal(9,6),
+  `energy_source_level_1` varchar(16),
+  `energy_source_level_2` varchar(10) ,
+  `energy_source_level_3` varchar(35) DEFAULT NULL,
+  `technology` varchar(31) DEFAULT NULL,
+  `data_source` varchar(52) NOT NULL,
+  `nuts_1_region` varchar(3) DEFAULT NULL,
+  `nuts_2_region` varchar(4) DEFAULT NULL,
+  `nuts_3_region` varchar(5) DEFAULT NULL,
+  `lon` decimal(17,14) DEFAULT NULL,
+  `lat` decimal(17,14) DEFAULT NULL,
+  `municipality` varchar(45) DEFAULT NULL,
+  `municipality_code` int DEFAULT NULL,
+  `region` varchar(26) DEFAULT NULL,
+  `region_code` int DEFAULT NULL,
+  `municipality_group` varchar(82) DEFAULT NULL,
+  `municipality_group_code` int DEFAULT NULL,
+  `departement` varchar(23) DEFAULT NULL,
+  `departement_code` int DEFAULT NULL,
+  `commissioning_date` date DEFAULT NULL,
+  `connection_date` date DEFAULT NULL,
+  `disconnection_date` date DEFAULT NULL,
+  `number_of_installations` varchar(4) NOT NULL,
+  `site_name` varchar(66) DEFAULT NULL,
+  `IRIS_code` int DEFAULT NULL,
+  `EIC_code` varchar(16) DEFAULT NULL,
+  `as_of_year` int ,
+  PRIMARY KEY (`id`)
+) 
