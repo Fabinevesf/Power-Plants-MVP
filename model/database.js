@@ -1,5 +1,6 @@
 require('dotenv').config()
 const mysql = require('mysql')
+const fs = require('fs')
 
 const DB_HOST = process.env.DB_HOST
 const DB_USER = process.env.DB_USER
@@ -18,8 +19,7 @@ con.connect(function (err) {
   if (err) throw err
   console.log('Connected!')
 
-  let sql =
-    'DROP TABLE if EXISTS `global_power_plant_database`;CREATE TABLE `global_power_plant_database`(`id` INT NOT NULL AUTO_INCREMENT,`electrical capacity` INT NOT NULL,`year` INT NOT NULL);DROP TABLE if EXISTS `Location Solar Power Plants`CREATE TABLE `Location Solar Power Plants`(`id` INT NOT NULL AUTO_INCREMENT,`long` INT NOT NULL, `lat` INT NOT NULL,`city` VARCHAR(255) NOT NULL, `country` VARCHAR(255) NOT NULL, PRIMARY KEY(id));'
+  let sql = fs.readFileSync(__dirname + '/init_db.sql').toString()
   con.query(sql, function (err, result) {
     if (err) throw err
     console.log(
