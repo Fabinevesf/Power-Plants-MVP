@@ -2,7 +2,7 @@
 
 Full Stack Power Plants Project MVP
 
-In this repository, you will use build a Full Stack Power Plants Project MVP using React, Node/Express, and MySQL.
+In this repository, you will build a Full Stack Power Plants Project MVP using React, Node/Express, and MySQL.
 
 Objectives
 Shows all power plants on a interactive map, you can filter the plants by source, location, year and installed capacity.
